@@ -3,12 +3,59 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CrossCalc"
              x:Class="CrossCalc.MainPage">
-
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="numKey" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="40" />
+            </Style>
+            <Style x:Key="operatorKey" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Orange" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="40" />
+            </Style>
+            <Style x:Key="clearKey" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Gray" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="40" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        <Grid BackgroundColor="Black" VerticalOptions="FillAndExpand" RowSpacing="1" ColumnSpacing="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label x:Name="screen" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" BackgroundColor="Black" TextColor="White" FontSize="60" HorizontalTextAlignment="End" VerticalTextAlignment="Center" />
+            <Button Text="7" Grid.Row="1" Grid.Column="0" Style="{StaticResource numKey}" Clicked="Button_Clicked" />
+            <Button Text="8" Grid.Row="1" Grid.Column="1" Style="{StaticResource numKey}" Clicked="Button_Clicked" />
+            <Button Text="9" Grid.Row="1" Grid.Column="2" Style="{StaticResource numKey}" Clicked="Button_Clicked" />
+            <Button Text="÷" Grid.Row="1" Grid.Column="3" Style="{StaticResource operatorKey}" Clicked="Button_Clicked" />
+            <Button Text="4" Grid.Row="2" Grid.Column="0" Style="{StaticResource numKey}" Clicked="Button_Clicked" />
+            <Button Text="5" Grid.Row="2" Grid.Column="1" Style="{StaticResource numKey}" Clicked="Button_Clicked" />
+            <Button Text="6" Grid.Row="2" Grid.Column="2" Style="{StaticResource numKey}" Clicked="Button_Clicked" />
+            <Button Text="×" Grid.Row="2" Grid.Column="3" Style="{StaticResource operatorKey}" Clicked="Button_Clicked" />
+            <Button Text="1" Grid.Row="3" Grid.Column="0" Style="{StaticResource numKey}" Clicked="Button_Clicked" />
+            <Button Text="2" Grid.Row="3" Grid.Column="1" Style="{StaticResource numKey}" Clicked="Button_Clicked" />
+            <Button Text="3" Grid.Row="3" Grid.Column="2" Style="{StaticResource numKey}" Clicked="Button_Clicked" />
+            <Button Text="-" Grid.Row="3" Grid.Column="3" Style="{StaticResource operatorKey}" Clicked="Button_Clicked" />
+            <Button Text="0" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource numKey}" Clicked="Button_Clicked" />
+            <Button Text="+" Grid.Row="4" Grid.Column="3" Style="{StaticResource operatorKey}" Clicked="Button_Clicked" />
+            <Button Text="C" Grid.Row="5" Grid.Column="0" Style="{StaticResource clearKey}" Clicked="Button_Clicked" />
+            <Button Text="=" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Style="{StaticResource operatorKey}" Clicked="Button_Clicked" />
+        </Grid>
     </StackLayout>
 
 </ContentPage>
